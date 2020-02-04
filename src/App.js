@@ -1,11 +1,13 @@
 import React from 'react';
-import './App.css';
+import Card from './components/card';
+
+import './app.css';
 
 function App() {
     return (
-        <div className="App">
-            <header className="App-header">
-                hello world
+        <div className="app">
+            <header className="app-header">
+                <Card />
             </header>
         </div>
     );
