@@ -30,6 +30,9 @@ const Card = () => (
                 <div className="weather-icon">
                     <SunnyIcon />
                 </div>
+                <div className="temperature">
+                    {data.temperature}
+                </div>
             </div>
             <div className="location">
                 {data.location}
