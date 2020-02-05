@@ -2,10 +2,15 @@
   background: #F0F4F7;
 }
 
-.app-header {
+.app-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.widget-list {
+  display: flex;
+  justify-content: space-evenly;
 }
