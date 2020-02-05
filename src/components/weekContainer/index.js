@@ -7,9 +7,12 @@ import print from '../../utilities/print';
 class WeekContainer extends Component {
 
     componentDidMount() {
-        this.getPosition()
+        const { getPosition } = this;
+        getPosition()
             .then((position) => {
-                this.getWeather(position.coords.latitude, position.coords.longitude);
+                const { getWeather } = this;
+                const { latitude, longitude } = position.coords;
+                getWeather(latitude, longitude);
             })
             .catch((err) => print(err.message));
     }
@@ -19,11 +22,9 @@ class WeekContainer extends Component {
     }))
 
     getWeather = async (latitude, longitude) => {
-        const api_call = await
-        fetch(`http//api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${ApiConfig}&units=metric`);
+        const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${ApiConfig}&units=metric`);
         const data = await api_call.json();
-
-        console.log('Data: ', data);
+        print('Data: ', data);
     }
 
     render() {
