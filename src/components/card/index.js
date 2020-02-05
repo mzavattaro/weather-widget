@@ -13,7 +13,7 @@ const data = {
 };
 
 const Card = () => (
-    <div className="container">
+    <div className="card-container">
         <div className="wrapper">
             <div className="header">
                 <div className="day">
