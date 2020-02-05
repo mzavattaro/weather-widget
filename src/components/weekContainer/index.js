@@ -14,17 +14,17 @@ const WeekContainer = () => {
     }));
 
     async function requestWeather(latitude, longitude) {
-        const weather = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${ApiConfig}&units=metric`);
-        const data = await weather.json();
+        const weatherData = await (await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${ApiConfig}&units=metric`)).json();
+
         setUserWeather({
-            lat: data.coord.lat,
-            lon: data.coord.lon,
-            city: data.name,
-            temperatureC: Math.round(data.main.temp),
-            icon: data.weather[0].icon,
+            lat: weatherData.coord.lat,
+            lon: weatherData.coord.lon,
+            city: weatherData.name,
+            temperatureC: Math.round(weatherData.main.temp),
+            icon: weatherData.weather[0].icon,
         });
 
-        print('API Data: ', data);
+        print('Weather data: ', weatherData);
     }
 
     useEffect(() => {
@@ -50,48 +50,3 @@ const WeekContainer = () => {
 };
 
 export default WeekContainer;
-
-// class WeekContainer extends Component {
-
-// componentDidMount() {
-//     const { getPosition } = this;
-//     getPosition()
-//         .then((position) => {
-//             const { getWeather } = this;
-//             const { latitude, longitude } = position.coords;
-//             getWeather(latitude, longitude);
-//         })
-//         .catch((err) => print(err.message));
-// }
-
-// getPosition = () => new Promise(((resolve, reject) => {
-//     navigator.geolocation.getCurrentPosition(resolve, reject);
-// }))
-
-// getWeather = async (latitude, longitude) => {
-//     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${ApiConfig}&units=metric`);
-//     const data = await api_call.json();
-//     print('Data: ', data);
-// }
-
-//     render() {
-
-//         return (
-//             <div className="widget-list">
-//                 <Grid fluid>
-//                     <Row between="xs">
-//                         <Col xs={4}>
-//                             <Card />
-//                         </Col>
-//                         <Col xs={4}>
-//                              <Card city={city} lat={lat} lon={lon} temperatureC={temperatureC} icon={icon} />
-//                         </Col>
-//                         <Col xs={4}>
-//                             <Card />
-//                         </Col>
-//                     </Row>
-//                 </Grid>
-//             </div>
-//         );
-//     }
-// }
