@@ -3,6 +3,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import Card from '../card';
 import ApiConfig from '../../utilities/apiKeys';
 import print from '../../utilities/print';
+import './weekContainer.css';
 
 const WeekContainer = () => {
     const [dailyForecast, setDailyForecast] = useState([]);
@@ -32,16 +33,10 @@ const WeekContainer = () => {
     const formatDayCards = () => dailyForecast.map((reading, index) => <Card reading={reading} key={index} forecastLocation={forecastLocation} />);
 
     return (
-        <div className="widget-container">
-            <Grid fluid>
-                <Row between="lg">
-                    <Col lg={12}>
-                        <div className="widget-list">
-                            {formatDayCards()}
-                        </div>
-                    </Col>
-                </Row>
-            </Grid>
+        <div className="weekContainer-container">
+            <div className="widget-list">
+                {formatDayCards()}
+            </div>
         </div>
     );
 };

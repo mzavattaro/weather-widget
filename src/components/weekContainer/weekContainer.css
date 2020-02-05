@@ -1,0 +1,17 @@
+/* .weekContainer-container {
+    overflow: scroll;
+    width: 2000px;
+}
+
+.widget-wrapper {
+    overflow: visible;
+} */
+
+.widget-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.widget-list > {
+    margin: 0 24px;
+}

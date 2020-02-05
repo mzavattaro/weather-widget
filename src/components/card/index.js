@@ -14,7 +14,7 @@ const Card = ({ reading, forecastLocation }) => {
             <div className="wrapper">
                 <div className="header">
                     <h1 className="day">
-                        <span>{moment(newDate).format('dddd')}</span>
+                        {moment(newDate).format('dddd')}
                     </h1>
                     <div className="date">
                         {moment(newDate).format('Do MMM h:mm a')}
