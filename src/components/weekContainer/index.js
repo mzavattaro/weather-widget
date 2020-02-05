@@ -20,7 +20,7 @@ class WeekContainer extends Component {
 
     getWeather = async (latitude, longitude) => {
         const api_call = await
-            fetch(`http//api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${ApiConfig}&units=metric`);
+        fetch(`http//api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${ApiConfig}&units=metric`);
         const data = await api_call.json();
 
         console.log('Data: ', data);
