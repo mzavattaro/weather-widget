@@ -1,47 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-// import getWeather from '../../utilities/getWeather';
-import ApiConfig from '../../utilities/apiKeys';
-// import getPosition from '../../utilities/getPosition';
 import Card from '../card';
+import ApiConfig from '../../utilities/apiKeys';
 import print from '../../utilities/print';
 
 const WeekContainer = () => {
-    const [userWeather, setUserWeather] = useState([]);
+    const [dailyForecast, setDailyForecast] = useState([]);
+    const [forecastLocation, setForecastLocation] = useState('');
 
     const getPosition = () => new Promise(((latitude, longitude) => {
         navigator.geolocation.getCurrentPosition(latitude, longitude);
     }));
 
     async function requestWeather(latitude, longitude) {
-        const weatherData = await (await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${ApiConfig}&units=metric`)).json();
-
-        setUserWeather({
-            lat: weatherData.coord.lat,
-            lon: weatherData.coord.lon,
-            city: weatherData.name,
-            temperatureC: Math.round(weatherData.main.temp),
-            icon: weatherData.weather[0].icon,
-        });
-
-        print('Weather data: ', weatherData);
+        const weather = await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${ApiConfig}&units=metric`);
+        const data = await weather.json();
+        const dailyData = data.list.filter(reading => reading.dt_txt.includes('18:00:00'));
+        const userPosition = data.city.name;
+        setDailyForecast(dailyData);
+        setForecastLocation(userPosition);
     }
 
     useEffect(() => {
         getPosition().then((position) => {
-            requestWeather(position.coords.latitude, position.coords.longitude);
+            const { latitude, longitude } = position.coords;
+            requestWeather(latitude, longitude);
         }).catch((err) => print(err.message));
     }, []);
+
+    const formatDayCards = () => dailyForecast.map((reading, index) => <Card reading={reading} key={index} forecastLocation={forecastLocation} />);
 
     return (
         <div className="widget-container">
             <Grid fluid>
-                <Row between="xs">
-                    <Col xs={4}>
+                <Row between="lg">
+                    <Col lg={12}>
                         <div className="widget-list">
-                            <Card userWeather={userWeather} />
+                            {formatDayCards()}
                         </div>
-
                     </Col>
                 </Row>
             </Grid>
