@@ -2,7 +2,7 @@ import React from 'react';
 import { ReactComponent as SunnyIcon } from './sunny.svg';
 import './card.css';
 
-import print from '../../utilities/print';
+import print from '../../../utilities/print';
 
 const data = {
     day: 'Friday',
