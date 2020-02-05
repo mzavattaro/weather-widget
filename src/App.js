@@ -1,24 +1,28 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 import Card from './components/card';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
 function App() {
     return (
         <div className="app">
             <div className="app-container">
-                <Container>
-                    <Row>
-                        <div className="widget-list">
-                            <Card />
-                            <Card />
-                            <Card />
-                        </div>
-                    </Row>
-                </Container>
+                <div className="widget-list">
+                    <Grid fluid>
+                        <Row between="xs">
+                            <Col xs={4}>
+                                <Card />
+                            </Col>
+                            <Col xs={4}>
+                                <Card />
+                            </Col>
+                            <Col xs={4}>
+                                <Card />
+                            </Col>
+                        </Row>
+                    </Grid>
+                </div>
             </div>
         </div>
     );

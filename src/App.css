@@ -1,5 +1,6 @@
 .app {
   background: #F0F4F7;
+  width: 100%;
 }
 
 .app-container {
@@ -12,5 +13,8 @@
 
 .widget-list {
   display: flex;
-  justify-content: space-evenly;
+}
+
+Row {
+  justify-content: space-between;
 }
