@@ -13,31 +13,35 @@ const Card = ({ reading, forecastLocation }) => {
         <div className="card-container">
             <div className="wrapper">
                 <div className="header">
-                    <div className="day">
-                        {moment(newDate).format('dddd')}
-                    </div>
+                    <h1 className="day">
+                        <span>{moment(newDate).format('dddd')}</span>
+                    </h1>
                     <div className="date">
                         {moment(newDate).format('Do MMM h:mm a')}
                     </div>
                 </div>
-                <div className="weather-condition">
+
+                <h2 className="weather-condition">
                     {reading.weather[0].description}
-                </div>
+                </h2>
+
                 <div className="icon-temperature">
                     <div className="weather-icon">
-                        {/* <img src={`http://openweathermap.org/img/w/${dailyForecast.icon}.png`} alt="weather icon" /> */}
+                        <img src={`http://openweathermap.org/img/w/${reading.weather[0].icon}.png`} alt="weather icon" />
                     </div>
                     <div className="temperature">
-                        {Math.round(reading.main.temp)}
+                        {Math.round(reading.main.temp)} oC
                     </div>
                 </div>
-                <div className="location">
+
+                <h2 className="location">
                     {forecastLocation}
-                </div>
+                </h2>
             </div>
         </div>
     );
 };
+
 
 export default Card;
 

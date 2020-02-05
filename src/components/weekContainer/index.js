@@ -19,6 +19,7 @@ const WeekContainer = () => {
         const userPosition = data.city.name;
         setDailyForecast(dailyData);
         setForecastLocation(userPosition);
+        print('data: ', dailyData);
     }
 
     useEffect(() => {
