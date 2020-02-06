@@ -1,31 +1,48 @@
 import React, { useState, useEffect } from 'react';
-// import { Grid, Row, Col } from 'react-flexbox-grid';
 import Card from '../card';
 import getPosition from '../../utilities/getPosition';
 import ApiConfig from '../../utilities/apiKeys';
 import print from '../../utilities/print';
 import './weekContainer.css';
 
+// WeekContainer is a classless component utilising Hooks as a means to setState
 const WeekContainer = () => {
+    // useState returns dailyForecast and forecastLocation arrays with the current value of each state and a function to update that function
+    // The dailyForecast state is given a default value of an empty array
+    // The forecastLocation state is given a default value of an empty string
     const [dailyForecast, setDailyForecast] = useState([]);
     const [forecastLocation, setForecastLocation] = useState('');
 
+    // Utilising an async function to fetch forecast data from openweathermap api based upon latitude and longitude that are passed as arguments
+    // Async function guarantees that it's going to return a Promise. Also provides the await keyword that forces the function to wait and complete before it provides data
     async function requestWeather(latitude, longitude) {
+        // requestWeather method takes two arguments latitude and longitude then makes an API call using latitude, longitude and the API key (ApiConfig)
         const weather = await (await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${ApiConfig}&units=metric`)).json();
+        // Forecast api provides an object with a list of 40 entries. I'm accessing the list from the weather api (that stores the api data), using a filter method to...
+        // ...target each individual reading based upon a weather reading taken at 18:00:00. This reduces the list of 40 entries to 5 consecutive days and stores in dailyData variable
         const dailyData = weather.list.filter(reading => reading.dt_txt.includes('18:00:00'));
+        // The problem with this filter method, is that it strips the city name from the data as it's not included within each individual list entry. To resolve this...
+        // ...I accessed the full api data set stored in the weather variable and target city name instead of the dailyData variable that stores weather list with no location
+        // This gets stored in its own varible which gets passed in to setForecastLocation state to update the users location based on city name
         const userPosition = weather.city.name;
 
+        // The two setStates below are taking the data stored in dailyData and userPosition varibles and updating the dailyForecast and forecastLocation states
         setDailyForecast(dailyData);
         setForecastLocation(userPosition);
     }
 
+    // useEffect replaces the need to use componentDidMount lifecycle method
     useEffect(() => {
         getPosition().then((position) => {
+            // Destructured below for readability
             const { latitude, longitude } = position.coords;
             requestWeather(latitude, longitude);
         }).catch((err) => print(err.message));
+        // useEffect takes two parameters. The second param is a dependency array. The empty array forces useEffect to fire once and are no dependencies
     }, []);
 
+    // Here we're mapping over the dailyForecast state to take each individual reading (and index) and display it as the formatDayCards function...
+    // ...this will then insert a Card component for each reading. The Card component is passed reading, index and forecastLocation as props
     const formatDayCards = () => dailyForecast.map((reading, index) => <Card reading={reading} key={index} forecastLocation={forecastLocation} />);
 
     return (
