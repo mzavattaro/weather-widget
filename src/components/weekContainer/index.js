@@ -18,12 +18,13 @@ const WeekContainer = () => {
     async function requestWeather(latitude, longitude) {
         // requestWeather method takes two arguments latitude and longitude then makes an API call using latitude, longitude and the API key (ApiConfig)
         const weather = await (await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${ApiConfig}&units=metric`)).json();
-        // Forecast api provides an object with a list of 40 entries. I'm accessing the list from the weather api (that stores the api data), using a filter method to...
-        // ...target each individual reading based upon a weather reading taken at 18:00:00. This reduces the list of 40 entries to 5 consecutive days and stores in dailyData variable
+        // Forecast api provides an object with a list of 40 entries. I'm accessing this list from the api using a filter method to...
+        // ...target each individual list reading with a timestamp of 18:00:00. This reduces the list of 40 entries to 5 consecutive days and stores it in dailyData variable
         const dailyData = weather.list.filter(reading => reading.dt_txt.includes('18:00:00'));
-        // The problem with this filter method, is that it strips the city name from the data as it's not included within each individual list entry. To resolve this...
-        // ...I accessed the full api data set stored in the weather variable and target city name instead of the dailyData variable that stores weather list with no location
-        // This gets stored in its own varible which gets passed in to setForecastLocation state to update the users location based on city name
+        // The problem with this filter method, is that it strips the location data from the weather variable as it's not included within each individual list entry. To resolve this...
+        // ...I accessed the full api data set stored in the weather variable and targeted city name
+        // This gets stored in its own varible which gets passed into the setForecastLocation state to update the users location based on city name
+        // This also "transforms" unusuable longitude and latitude data into a readable city name
         const userPosition = weather.city.name;
 
         // The two setStates below are taking the data stored in dailyData and userPosition varibles and updating the dailyForecast and forecastLocation states
