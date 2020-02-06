@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import './card.css';
 
 const Card = ({ reading, forecastLocation }) => {
@@ -45,7 +45,17 @@ const Card = ({ reading, forecastLocation }) => {
 
 export default Card;
 
-// Card.propTypes = {
-//     dailyForecast: PropTypes.arrayOf.isRequired,
-//     temperatureC: PropTypes.string.isRequired,
-// };
+Card.propTypes = {
+    reading: PropTypes.shape({ root: PropTypes.string }),
+    forecastLocation: PropTypes.string.isRequired,
+    main: PropTypes.shape({ root: PropTypes.object }),
+    temp: PropTypes.string,
+    dt: PropTypes.number,
+};
+
+Card.defaultProps = {
+    reading: '',
+    main: {},
+    temp: '',
+    dt: 0,
+};
