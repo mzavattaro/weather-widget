@@ -25,7 +25,7 @@ const Card = ({ reading, forecastLocation }) => {
                 </div>
 
                 <h2 className="weather-condition">
-                    {/* To access weather description, the weather data is stored as an array with index 0 the location we want to access */}
+                    {/* The weather data is stored as an array with index[0] as the location we need to access the weather description */}
                     {reading.weather[0].description}
                 </h2>
 
@@ -49,6 +49,7 @@ const Card = ({ reading, forecastLocation }) => {
 
 export default Card;
 
+// propTypes define the properties required by the Card component
 Card.propTypes = {
     reading: PropTypes.shape({ root: PropTypes.string }),
     forecastLocation: PropTypes.string.isRequired,
