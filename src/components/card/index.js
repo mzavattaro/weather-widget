@@ -3,12 +3,13 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 import { ReactComponent as SunriseSVG } from './sunrise.svg';
 import { ReactComponent as SunsetSVG } from './sunset.svg';
+import print from '../../utilities/print';
 import './card.css';
 
-// Card is receiving two properties (reading and forecastlocation) from its parent component
+// Card is receiving four properties from its parent component
 const Card = ({ reading, forecastLocation, sunset, sunrise }) => {
 
-    // To transform the APIs data into a readable format, we ue the Moment.js to return the day of the week using the reading object's dt key
+    // To transform the APIs date format into a readable format
     const newDate = new Date();
     const weekday = reading.dt * 1000;
     newDate.setTime(weekday);
@@ -21,7 +22,7 @@ const Card = ({ reading, forecastLocation, sunset, sunrise }) => {
     const sunseTime = sunset * 1000;
     dailySunset.setTime(sunseTime);
 
-
+    print('Data: ', newDate);
     // From the properties passed down from the parent component, we can specify and display the data from the reading object and the user's forecastLocation
     return (
         <div className="card-container">
@@ -39,11 +40,11 @@ const Card = ({ reading, forecastLocation, sunset, sunrise }) => {
                             {Math.round(reading.main.temp)}<sup><span><sup>o</sup>C</span></sup>
                         </div>
                         <div className="weather-condition">
-                            {/* The weather data is stored as an array with index[0] as the location we need to access the weather description */}
+                            {/* The weather data is stored as an array. index[0] is the location we need to access to pass the weather description */}
                             {reading.weather[0].description}
                         </div>
                         <div className="wind-speed">
-                            Winds up to {Math.round(reading.wind.speed * 3.6)} kms
+                            Winds up to {Math.round(reading.wind.speed * 3.6)} km/h
                         </div>
                     </div>
 
@@ -77,7 +78,7 @@ const Card = ({ reading, forecastLocation, sunset, sunrise }) => {
                         {forecastLocation}
                     </div>
                     <div className="date">
-                        {moment(newDate).format('Do MMMM')}
+                        {moment(newDate).format('Do MMMM h:mm a')}
                     </div>
                 </div>
             </div>
@@ -86,7 +87,6 @@ const Card = ({ reading, forecastLocation, sunset, sunrise }) => {
 
     );
 };
-
 
 export default Card;
 
