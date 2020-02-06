@@ -3,6 +3,7 @@ import WeekContainer from './components/weekContainer';
 
 import './app.css';
 
+// The WeekContainer component is being inserted into the App() fuction
 function App() {
     return (
         <div className="app">
