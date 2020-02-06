@@ -3,12 +3,15 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 import './card.css';
 
+// Card is receiving two properties (reading and forecastlocation) from its parent component
 const Card = ({ reading, forecastLocation }) => {
 
+    // To transform the APIs data into a readable format, we ue the Moment.js to return the day of the week using the reading object's dt key
     const newDate = new Date();
     const weekday = reading.dt * 1000;
     newDate.setTime(weekday);
 
+    // From the properties passed down from the parent component, we can specify and display the data from the reading object and the user's forecastLocation
     return (
         <div className="card-container">
             <div className="wrapper">
@@ -22,6 +25,7 @@ const Card = ({ reading, forecastLocation }) => {
                 </div>
 
                 <h2 className="weather-condition">
+                    {/* To access weather description, the weather data is stored as an array with index 0 the location we want to access */}
                     {reading.weather[0].description}
                 </h2>
 
