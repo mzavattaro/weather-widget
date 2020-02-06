@@ -22,7 +22,6 @@ const Card = ({ reading, forecastLocation, sunset, sunrise }) => {
     const sunseTime = sunset * 1000;
     dailySunset.setTime(sunseTime);
 
-    print('Data: ', newDate);
     // From the properties passed down from the parent component, we can specify and display the data from the reading object and the user's forecastLocation
     return (
         <div className="card-container">

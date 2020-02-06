@@ -36,7 +36,6 @@ const WeekContainer = () => {
         setForecastLocation(userPosition);
         setSunrise(userSunrise);
         setSunset(userSunset);
-        print('data: ', weather);
     }
 
     // useEffect replaces the need to use componentDidMount lifecycle method
