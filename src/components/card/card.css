@@ -3,7 +3,7 @@
     border-radius: 0.3rem;
     padding: 1.5rem;
     width: 14rem;
-
+    color: rgba(55, 58, 69, 0.959);
     margin: 0 2rem;
     box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.2), 0 0.375rem 1.25rem 0 rgba(0, 0, 0, 0.19);
     display: flex;
@@ -48,9 +48,9 @@ h2 {
     font-size: 2rem;
 }
 
-.pressure,
 .wind-speed {
     color: #AFB0C2;
+    font-size: 0.8rem;
 }
 
 .weather-condition {
@@ -71,6 +71,49 @@ h2 {
 
 .weather-icon {
     margin-right: -1.2rem;
+}
+
+.footer {
+    margin-top: 2rem;
+}
+
+.twilight-hours {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.subheader {
+    border-bottom: 2px solid rgb(217, 218, 231, 0.5) ;
+    padding: 0 3rem 0.5rem 3rem ;
+}
+
+.sunrise-sunset {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.sunrise,
+.sunset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #AFB0C2;
+    font-size: 0.8rem;
+}
+
+.sunrise {
+    margin-right: 3rem;
+}
+
+.sunrise-svg,
+.sunset-svg {
+    width: 60%;
+}
+
+.location-date {
+    margin-top: 1rem;
 }
 
 .location {

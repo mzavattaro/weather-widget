@@ -16,9 +16,6 @@ function App() {
             <div className="lt-widget-container">
                 <WeekContainer />
             </div>
-            <div className="lt-footer">
-                <span>Made with ❤️ for Koala 🐨</span>
-            </div>
             <div className="lt-left-border" />
             <div className="lt-right-border" />
         </div>
