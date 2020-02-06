@@ -1,68 +1,72 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Weather Widget
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+This is a simple weather widget that shows the daily weather forecast beased on the user's current location.
+In order for the widget to accurately obtain the user's location, the user must agreee to allow the browser to collect their location data.
+This widget does not store any user data.
 
-### `yarn start`
+The widget was built in React.js.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Features
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Clean minimalistic design that shows:
+- 5 day weather forecast
+- daily temperature
+- daily wind speed
+- weather description
+- twilight hours
+- user's location
+- current day
+- current weather icon
+- date and time of weather forecast for that day
 
-### `yarn test`
+The user has the ability to scroll between each consecutive days.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This widget uses `navigator.geolocation` to retrieve the user's longitude and latitude and passes it into Open Weather's API to obtain the user's 5 Day / 3 Hour forecast for their current location.
 
-### `yarn build`
+This React app uses up-to-date methods such as Hooks (useState, useEffect), destructuring and CSS Grid. One of the aims was to use as few libraries as possible in order to keep the lightweight for performance reasons.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Step 1:
 
-### `yarn eject`
+Unzip the source code downloaded from your email attachment.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Step 2:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Open **weather-widget** directory folder either from the terminal or from your text editor of choice.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Step 3:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Make sure the terminal is within **weather-widget** directory. From the terminal, install dependencies via `yarn install`.
 
-## Learn More
+### Step 4:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+After `yarn install` has completed, you can run the weather widget on localhost with `yarn start` or build the widget for production with `yarn build`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Note:
 
-### Code Splitting
+This app requires the lastest version of Node.js to be installed. You can download Node.js directly from: (https://nodejs.org/en/download/) or via Homebrew `brew install node` if you're running macOS.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
+## Usage
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+To use the weather widget app, the user must agree to allow their browser to obtain their location data. A popup will appear requesting the user to allow or block geolocation. Once allowed, it may take a few moments for the weather widget to fetch the 5 day weather forecast from Open Weather Map. Once fetched, the widget will display the user's personal weather information on side scrollable cards. Each card shows the weather information for the next 5 days.
 
-### Making a Progressive Web App
+## Issues
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+The weather widget app uses Open Weather Map's free tiered 5 day/3 hour forecast for its weather API. This API may not show the user's weather information instantly as it can be slow to fetch directly from the API. It can sometimes take several seconds to several minutes to fetch API information.
 
-### Advanced Configuration
+## Roadmap
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Due to time contraints, not all ideas were incorporated into the weather widget app. In the future, I'd like to:
+- Clicking on a card opens a modal that shows more weather information
+- Ability to toggle between degrees Celcius and Fahrenheit
+- Migrate to a more reliable weather api that provides hourly weather updates
+- Search capability to search for a specific location's weather
+- Dark mode
+- Progressive web app support
+- Mobile friendly view
 
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
