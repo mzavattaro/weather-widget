@@ -12,8 +12,8 @@ const WeekContainer = () => {
     // The forecastLocation state is given a default value of an empty string
     const [dailyForecast, setDailyForecast] = useState([]);
     const [forecastLocation, setForecastLocation] = useState('');
-    const [sunrise, setSunrise] = useState('');
-    const [sunset, setSunset] = useState('');
+    const [sunrise, setSunrise] = useState(0);
+    const [sunset, setSunset] = useState(0);
 
     // Utilising an async function to fetch forecast data from openweathermap api based upon latitude and longitude that are passed as arguments
     // Async function guarantees that it's going to return a Promise. Also provides the await keyword that forces the function to wait and complete before it provides data

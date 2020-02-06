@@ -94,6 +94,8 @@ export default Card;
 Card.propTypes = {
     reading: PropTypes.shape({ root: PropTypes.string }),
     forecastLocation: PropTypes.string.isRequired,
+    sunset: PropTypes.number,
+    sunrise: PropTypes.number,
     main: PropTypes.shape({ root: PropTypes.object }),
     temp: PropTypes.string,
     dt: PropTypes.number,
@@ -101,6 +103,8 @@ Card.propTypes = {
 
 Card.defaultProps = {
     reading: '',
+    sunset: 0,
+    sunrise: 0,
     main: {},
     temp: '',
     dt: 0,
