@@ -3,7 +3,6 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 import { ReactComponent as SunriseSVG } from './sunrise.svg';
 import { ReactComponent as SunsetSVG } from './sunset.svg';
-import print from '../../utilities/print';
 import './card.css';
 
 // Card is receiving four properties from its parent component

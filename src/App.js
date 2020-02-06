@@ -7,18 +7,20 @@ import './app.css';
 function App() {
     return (
 
-        <div className="lt-grid-container">
-            <div className="lt-header">
+        <div className="container">
+            <div className="cell cell-1">
                 <h1>
                     Weather Widget
                 </h1>
             </div>
-            <div className="lt-widget-container">
+            <div className="cell cell-2" />
+            <div className="cell cell-3">
                 <WeekContainer />
             </div>
-            <div className="lt-left-border" />
-            <div className="lt-right-border" />
+            <div className="cell cell-4" />
+            <div className="cell cell-5" />
         </div>
+
     );
 }
 
