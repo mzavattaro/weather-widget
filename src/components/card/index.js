@@ -14,35 +14,47 @@ const Card = ({ reading, forecastLocation }) => {
     // From the properties passed down from the parent component, we can specify and display the data from the reading object and the user's forecastLocation
     return (
         <div className="card-container">
-            <div className="wrapper">
-                <div className="header">
-                    <h1 className="day">
+            <div className="header">
+                <div className="day-tag">
+                    <h2 className="day">
                         {moment(newDate).format('dddd')}
-                    </h1>
-                    <div className="date">
-                        {moment(newDate).format('Do MMM h:mm a')}
-                    </div>
+                    </h2>
                 </div>
 
-                <h2 className="weather-condition">
-                    {/* The weather data is stored as an array with index[0] as the location we need to access the weather description */}
-                    {reading.weather[0].description}
-                </h2>
 
-                <div className="icon-temperature">
-                    <div className="weather-icon">
-                        <img src={`http://openweathermap.org/img/w/${reading.weather[0].icon}.png`} alt="weather icon" />
+                <div className="temp-condition-icon">
+                    <div className="temp-condition">
+                        <div className="temperature">
+                            {Math.round(reading.main.temp)}<sup><span><sup>o</sup>C</span></sup>
+                        </div>
+                        <div className="weather-condition">
+                            {/* The weather data is stored as an array with index[0] as the location we need to access the weather description */}
+                            {reading.weather[0].description}
+                        </div>
                     </div>
-                    <div className="temperature">
-                        {Math.round(reading.main.temp)} oC
+
+                    <div className="icon-temperature">
+                        <div className="weather-icon">
+                            <img src={`http://openweathermap.org/img/wn/${reading.weather[0].icon}@2x.png`} alt="weather icon" />
+                        </div>
                     </div>
                 </div>
-
-                <h2 className="location">
-                    {forecastLocation}
-                </h2>
             </div>
+
+
+            <div className="footer">
+                <div className="location-date">
+                    <div className="location">
+                        {forecastLocation}
+                    </div>
+                    <div className="date">
+                        {moment(newDate).format('Do MMMM')}
+                    </div>
+                </div>
+            </div>
+
         </div>
+
     );
 };
 

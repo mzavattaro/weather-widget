@@ -30,6 +30,7 @@ const WeekContainer = () => {
         // The two setStates below are taking the data stored in dailyData and userPosition varibles and updating the dailyForecast and forecastLocation states
         setDailyForecast(dailyData);
         setForecastLocation(userPosition);
+        print('data: ', dailyData);
     }
 
     // useEffect replaces the need to use componentDidMount lifecycle method
