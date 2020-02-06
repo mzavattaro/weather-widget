@@ -4,12 +4,21 @@ import PropTypes from 'prop-types';
 import './card.css';
 
 // Card is receiving two properties (reading and forecastlocation) from its parent component
-const Card = ({ reading, forecastLocation }) => {
+const Card = ({ reading, forecastLocation, sunset, sunrise }) => {
 
     // To transform the APIs data into a readable format, we ue the Moment.js to return the day of the week using the reading object's dt key
     const newDate = new Date();
     const weekday = reading.dt * 1000;
     newDate.setTime(weekday);
+
+    const dailySunrise = new Date();
+    const sunriseTime = sunrise * 1000;
+    dailySunrise.setTime(sunriseTime);
+
+    const dailySunset = new Date();
+    const sunseTime = sunset * 1000;
+    dailySunset.setTime(sunseTime);
+
 
     // From the properties passed down from the parent component, we can specify and display the data from the reading object and the user's forecastLocation
     return (
@@ -43,6 +52,14 @@ const Card = ({ reading, forecastLocation }) => {
 
 
             <div className="footer">
+                <div className="sunrise-sunset">
+                    <div className="sunrise">
+                        {moment(dailySunrise).format('h:mm a')}
+                    </div>
+                    <div className="sunset">
+                        {moment(dailySunset).format('h:mm a')}
+                    </div>
+                </div>
                 <div className="location-date">
                     <div className="location">
                         {forecastLocation}

@@ -12,6 +12,8 @@ const WeekContainer = () => {
     // The forecastLocation state is given a default value of an empty string
     const [dailyForecast, setDailyForecast] = useState([]);
     const [forecastLocation, setForecastLocation] = useState('');
+    const [sunrise, setSunrise] = useState('');
+    const [sunset, setSunset] = useState('');
 
     // Utilising an async function to fetch forecast data from openweathermap api based upon latitude and longitude that are passed as arguments
     // Async function guarantees that it's going to return a Promise. Also provides the await keyword that forces the function to wait and complete before it provides data
@@ -26,11 +28,15 @@ const WeekContainer = () => {
         // This gets stored in its own varible which gets passed into the setForecastLocation state to update the users location based on city name
         // This also "transforms" unusuable longitude and latitude data into a readable city name
         const userPosition = weather.city.name;
+        const userSunrise = weather.city.sunrise;
+        const userSunset = weather.city.sunset;
 
         // The two setStates below are taking the data stored in dailyData and userPosition varibles and updating the dailyForecast and forecastLocation states
         setDailyForecast(dailyData);
         setForecastLocation(userPosition);
-        print('data: ', dailyData);
+        setSunrise(userSunrise);
+        setSunset(userSunset);
+        print('data: ', weather);
     }
 
     // useEffect replaces the need to use componentDidMount lifecycle method
@@ -45,7 +51,7 @@ const WeekContainer = () => {
 
     // Here we're mapping over the dailyForecast state to take each individual reading (and index) and display it as the formatDayCards function...
     // ...this will then insert a Card component for each reading. The Card component is passed reading, index and forecastLocation as props
-    const formatDayCards = () => dailyForecast.map((reading, index) => <Card reading={reading} key={index} forecastLocation={forecastLocation} />);
+    const formatDayCards = () => dailyForecast.map((reading, index) => <Card reading={reading} key={index} forecastLocation={forecastLocation} sunset={sunset} sunrise={sunrise} />);
 
     return (
         <div className="card-list-container">
