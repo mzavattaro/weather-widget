@@ -1,17 +1,29 @@
-/* .weekContainer-container {
-    overflow: scroll;
-    width: 2000px;
+.card-list-container {
+    width: 100%;
 }
 
-.widget-wrapper {
-    overflow: visible;
+.card-list-wrapper {
+    overflow: hidden;
+}
+
+.card-list {
+    display: flex;
+    justify-content: space-between;
+    overflow: scroll;
+    width: 100%;
+}
+
+/* .card-list-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 } */
 
-.widget-list {
-  display: flex;
-  justify-content: space-between;
-}
-
-.widget-list > {
-    margin: 0 24px;
-}
+/* .card-list {
+    display: flex;
+    overflow: scroll;
+    padding: 6rem;
+    width: 40%;
+} */

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, Row, Col } from 'react-flexbox-grid';
+// import { Grid, Row, Col } from 'react-flexbox-grid';
 import Card from '../card';
 import ApiConfig from '../../utilities/apiKeys';
 import print from '../../utilities/print';
@@ -33,9 +33,11 @@ const WeekContainer = () => {
     const formatDayCards = () => dailyForecast.map((reading, index) => <Card reading={reading} key={index} forecastLocation={forecastLocation} />);
 
     return (
-        <div className="weekContainer-container">
-            <div className="widget-list">
-                {formatDayCards()}
+        <div className="card-list-container">
+            <div className="card-list-wrapper">
+                <div className="card-list">
+                    {formatDayCards()}
+                </div>
             </div>
         </div>
     );
