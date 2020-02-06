@@ -48,9 +48,17 @@ h2 {
     font-size: 2rem;
 }
 
-.wind-speed {
+.wind-speed,
+.humidity,
+.pressure,
+.feels-like {
     color: #AFB0C2;
     font-size: 0.8rem;
+    padding: 0.1rem 0;
+}
+
+.feels-like > sup > span {
+    font-size: 0.5rem;
 }
 
 .weather-condition {

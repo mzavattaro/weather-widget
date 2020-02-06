@@ -3,6 +3,7 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 import { ReactComponent as SunriseSVG } from './sunrise.svg';
 import { ReactComponent as SunsetSVG } from './sunset.svg';
+import print from '../../utilities/print';
 import './card.css';
 
 // Card is receiving four properties from its parent component
@@ -41,8 +42,17 @@ const Card = ({ reading, forecastLocation, sunset, sunrise }) => {
                             {/* The weather data is stored as an array. index[0] is the location we need to access to pass the weather description */}
                             {reading.weather[0].description}
                         </div>
+                        <div className="feels-like">
+                            Feels like {Math.round(reading.main.feels_like)}<sup><span><sup>o</sup>C</span></sup>
+                        </div>
                         <div className="wind-speed">
                             Winds up to {Math.round(reading.wind.speed * 3.6)} km/h
+                        </div>
+                        <div className="humidity">
+                            Daily humidity of {reading.main.humidity}%
+                        </div>
+                        <div className="pressure">
+                            BP of {reading.main.pressure} hPa
                         </div>
                     </div>
 

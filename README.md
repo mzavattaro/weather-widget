@@ -69,4 +69,3 @@ Due to time contraints, not all ideas were incorporated into the weather widget 
 - Dark mode
 - Progressive web app support
 - Mobile friendly view
-
