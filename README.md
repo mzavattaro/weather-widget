@@ -30,7 +30,7 @@ The user has the ability to scroll between each consecutive days.
 
 This widget uses `navigator.geolocation` to retrieve the user's longitude and latitude and passes it into Open Weather's API to obtain the user's 5 Day / 3 Hour forecast for their current location.
 
-This React app uses up-to-date methods such as Hooks (useState, useEffect), destructuring and CSS Grid. One of the aims was to use as few libraries as possible in order to keep the lightweight for performance reasons.
+This React app uses up-to-date methods such as Hooks (useState, useEffect), destructuring and CSS Grid. One of the aims was to use as few libraries as possible to keep it lightweight for performance.
 
 
 ## Installation
@@ -85,3 +85,5 @@ Due to time contraints, not all ideas were incorporated into the weather widget 
 - Travis CI integration for code testing
 - Sentry integration for error monitoring
 - Loading text when the widget is fetching weather data from the API
+- Backwards compatability for Internet Explorer 9-11
+- Accessability support
