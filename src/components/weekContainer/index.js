@@ -19,7 +19,7 @@ const WeekContainer = () => {
     // Async function guarantees that it's going to return a Promise. Also provides the await keyword that forces the function to wait and complete before it provides data
     async function requestWeather(latitude, longitude) {
         // requestWeather method takes two arguments latitude and longitude then makes an API call using latitude, longitude and the API key (ApiConfig)
-        const weather = await (await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${ApiConfig}&units=metric`)).json();
+        const weather = await (await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${ApiConfig}&units=metric`)).json();
         // Forecast api provides an object with a list of 40 entries. I'm accessing this list from the api using a filter method to
         const dailyData = weather.list.filter((reading, index) => index % 8 === 0);
         // The problem with this filter method, is that it strips the location data from the weather variable as it's not included within each individual list entry. To resolve this...
