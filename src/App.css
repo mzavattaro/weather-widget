@@ -5,7 +5,7 @@
   grid-template-areas: "header header header"
                        "left main right"
                        "footer footer footer";
-  grid-template-rows: 0.5fr 3fr 0.1fr;
+  grid-template-rows: 0.5fr 3.5fr 0.1fr;
   grid-template-columns: 1fr 2fr 1fr;
 }
 
@@ -23,6 +23,7 @@
 .cell-3 {
   grid-area: main;
   overflow-x: hidden;
+  border-radius: 8px;
 }
 
 .cell-4 {
@@ -37,4 +38,4 @@
 .cell.cell-3 {
   background: red;
   background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 15%, rgba(255,255,255,1) 85%, rgba(255,255,255,1) 100%);
-  }
+}

@@ -1,6 +1,8 @@
 .card-list-container {
     display: flex;
     overflow: scroll;
+    background-color: #fafafc;
+    border-radius: 4px;
 }
 
 .card-list {
