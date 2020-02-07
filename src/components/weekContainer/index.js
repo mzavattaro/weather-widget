@@ -44,7 +44,7 @@ const WeekContainer = () => {
             const { latitude, longitude } = position.coords;
             requestWeather(latitude, longitude);
         }).catch((err) => print(err.message));
-        // useEffect takes two parameters. The second param is a dependency array. The empty array forces useEffect to fire once and are no dependencies
+        // useEffect takes two parameters. The second param is a dependency array. The empty array forces useEffect to fire once and with no dependencies
     }, []);
 
     // Here we're mapping over the dailyForecast state to take each individual reading (and index) and display it as the formatDayCards function...
