@@ -5,7 +5,7 @@
   grid-template-areas: "header header header"
                        "left main right"
                        "footer footer footer";
-  grid-template-rows: 0.5fr 3fr 0.5fr;
+  grid-template-rows: 0.5fr 3fr 0.1fr;
   grid-template-columns: 1fr 2fr 1fr;
 }
 .cell-1 {
@@ -26,4 +26,5 @@
 }
 .cell-5 {
   grid-area: footer;
+  text-align: center;
 }

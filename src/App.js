@@ -18,7 +18,9 @@ function App() {
                 <WeekContainer />
             </div>
             <div className="cell cell-4" />
-            <div className="cell cell-5" />
+            <div className="cell cell-5">
+                Made by Michael Zavattaro for the Koala Technical Test
+            </div>
         </div>
 
     );
