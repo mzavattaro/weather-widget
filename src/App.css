@@ -8,23 +8,33 @@
   grid-template-rows: 0.5fr 3fr 0.1fr;
   grid-template-columns: 1fr 2fr 1fr;
 }
+
 .cell-1 {
   grid-area: header;
   text-align: center;
   color: #373A45;
   font-size: 1.5rem;
 }
+
 .cell-2 {
   grid-area: left;
 }
+
 .cell-3 {
   grid-area: main;
-  overflow: hidden;
+  overflow-x: hidden;
 }
+
 .cell-4 {
   grid-area: right;
 }
+
 .cell-5 {
   grid-area: footer;
   text-align: center;
 }
+
+.cell.cell-3 {
+  background: red;
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 15%, rgba(255,255,255,1) 85%, rgba(255,255,255,1) 100%);
+  }

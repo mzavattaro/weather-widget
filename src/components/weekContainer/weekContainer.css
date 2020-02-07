@@ -1,6 +1,5 @@
 .card-list-container {
     display: flex;
-    /* width: 50%; */
     overflow: scroll;
 }
 

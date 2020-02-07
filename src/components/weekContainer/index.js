@@ -22,7 +22,7 @@ const WeekContainer = () => {
         const weather = await (await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${ApiConfig}&units=metric`)).json();
         // Forecast api provides an object with a list of 40 entries. I'm accessing this list from the api using a filter method to...
         // ...target each individual list reading with a timestamp of 12:00:00. This reduces the list of 40 entries to 5 consecutive days and stores it in dailyData variable
-        const dailyData = weather.list.filter(reading => reading.dt_txt.includes('12:00:00'));
+        const dailyData = weather.list.filter((reading, index) => index % 8 === 0);
         // The problem with this filter method, is that it strips the location data from the weather variable as it's not included within each individual list entry. To resolve this...
         // ...I accessed the full api data set stored in the weather variable and targeted city name
         // This gets stored in its own varible which gets passed into the setForecastLocation state to update the users location based on city name
@@ -36,7 +36,7 @@ const WeekContainer = () => {
         setForecastLocation(userPosition);
         setSunrise(userSunrise);
         setSunset(userSunset);
-        print('Data: ', dailyData);
+        print('Data: ', weather);
     }
 
     // useEffect replaces the need to use componentDidMount lifecycle method
