@@ -60,6 +60,10 @@ This app requires the lastest version of Node.js to be installed. You can downlo
 
 To use the weather widget app, the user must agree to allow their browser to obtain their location data. A popup will appear requesting the user to allow or block geolocation. Once allowed, it may take a few moments for the weather widget to fetch the 5 day weather forecast from Open Weather Map's API. Once fetched, the widget will display the user's personal weather information on side scrollable cards. Each card shows the weather information for the next 5 days, including today's.
 
+Note: The 5 day/3 hour weather API only provides updated weather information at 3 hour intervals. Based upon the user's current time, the weather widget will show the weather informatin for that upcoming time.
+
+The Open Weather Map collects weather data at: 0:00, 03:00, 06:00, 09:00, 12:00, 15:00, 18:00, 21:00 UTC intervals. The weather widget automatically converts the UTC times to the user's standardised location time. For Sydney, it's AEST.
+
 You can use a production ready build of the weather widget here: https://zen-sammet-f74117.netlify.com/
 
 ## Issues
