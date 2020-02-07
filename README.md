@@ -70,7 +70,7 @@ You can use a production ready build of the weather widget here: https://zen-sam
 
 The weather widget app uses Open Weather Map's free tiered 5 day/3 hour forecast for its weather API. This API may not show the user's weather information instantly as it can be slow to fetch directly from the API. It can sometimes take several seconds to several minutes to fetch API information.
 
-Whilst not an issue for the purpose of this technical test, normally I'd store the API within a .env file that is ignored within .gitignore. THe API is currently stored in its own JavaScript file so it can be used for testing purposes.
+Whilst not an issue for the purpose of this technical test, normally I'd store the API within a .env file that is ignored within .gitignore. The API is currently stored in its own JavaScript file so it can be used for testing purposes.
 
 ## Roadmap
 
