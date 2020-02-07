@@ -37,7 +37,7 @@ const WeekContainer = () => {
         setSunset(userSunset);
     }
 
-    // useEffect replaces the need to use componentDidMount lifecycle method
+    // useEffect replaces the need to use componentDidMount lifecycle method.
     useEffect(() => {
         getPosition().then((position) => {
             // Destructured below for readability
