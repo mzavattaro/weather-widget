@@ -6,7 +6,9 @@ This is a simple weather widget that shows the daily weather forecast beased on 
 In order for the widget to accurately obtain the user's location, the user must agreee to allow the browser to collect their location data.
 This widget does not store any user data.
 
-The widget was built in React.js.
+The widget was built using React.js, Yarn, Webpack and Babel with the most up-to-date versions of HTML5, CSS and ES6.
+Supported browsers: Chrome, Firefox, Edge (Chromium) and Safari.
+
 
 ### Features
 
@@ -51,12 +53,14 @@ After `yarn install` has completed, you can run the weather widget on localhost 
 
 ### Note:
 
-This app requires the lastest version of Node.js to be installed. You can download Node.js directly from: (https://nodejs.org/en/download/) or via Homebrew `brew install node` if you're running macOS.
+This app requires the lastest version of Node.js to be installed. You can download Node.js directly from: https://nodejs.org/en/download/ or via Homebrew `brew install node` if you're running macOS.
 
 
 ## Usage
 
-To use the weather widget app, the user must agree to allow their browser to obtain their location data. A popup will appear requesting the user to allow or block geolocation. Once allowed, it may take a few moments for the weather widget to fetch the 5 day weather forecast from Open Weather Map. Once fetched, the widget will display the user's personal weather information on side scrollable cards. Each card shows the weather information for the next 5 days.
+To use the weather widget app, the user must agree to allow their browser to obtain their location data. A popup will appear requesting the user to allow or block geolocation. Once allowed, it may take a few moments for the weather widget to fetch the 5 day weather forecast from Open Weather Map's API. Once fetched, the widget will display the user's personal weather information on side scrollable cards. Each card shows the weather information for the next 5 days, including today's.
+
+You can use a production ready build of the weather widget here: https://zen-sammet-f74117.netlify.com/
 
 ## Issues
 
@@ -64,11 +68,14 @@ The weather widget app uses Open Weather Map's free tiered 5 day/3 hour forecast
 
 ## Roadmap
 
-Due to time contraints, not all ideas were incorporated into the weather widget app. In the future, I'd like to:
+Due to time contraints, not all ideas were incorporated into the weather widget app. I'd also add:
 - Clicking on a card opens a modal that shows more weather information
 - Ability to toggle between degrees Celcius and Fahrenheit
 - Migrate to a more reliable weather api that provides hourly weather updates
-- Search capability to search for a specific location's weather
+- Search capability to select a specific location's weather
 - Dark mode
 - Progressive web app support
 - Mobile friendly view
+- Travis CI integration for code testing
+- Sentry integration for error monitoring
+- Loading text when the widget is fetching weather data from the API
