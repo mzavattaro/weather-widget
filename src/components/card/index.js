@@ -40,7 +40,7 @@ const Card = ({ reading, forecastLocation, sunset, sunrise }) => (
 
                 <div className="icon-temperature">
                     <div className="weather-icon">
-                        <img src={`http://openweathermap.org/img/wn/${reading.weather[0].icon}@2x.png`} alt="weather icon" />
+                        <img src={`https://openweathermap.org/img/wn/${reading.weather[0].icon}@2x.png`} alt="weather icon" />
                     </div>
                 </div>
             </div>
