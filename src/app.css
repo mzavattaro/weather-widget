@@ -1,0 +1,36 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-areas: "header header header"
+                       "left main right"
+                       "footer footer footer";
+  grid-template-rows: 0.5fr 3.5fr 0.1fr;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.cell-1 {
+  grid-area: header;
+  text-align: center;
+  color: #373A45;
+  font-size: 1.5rem;
+}
+
+.cell-2 {
+  grid-area: left;
+}
+
+.cell-3 {
+  grid-area: main;
+  overflow-x: hidden;
+  border-radius: 8px;
+}
+
+.cell-4 {
+  grid-area: right;
+}
+
+.cell-5 {
+  grid-area: footer;
+  text-align: center;
+}
