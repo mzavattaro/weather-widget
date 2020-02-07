@@ -34,8 +34,3 @@
   grid-area: footer;
   text-align: center;
 }
-
-.cell.cell-3 {
-  background: red;
-  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 15%, rgba(255,255,255,1) 85%, rgba(255,255,255,1) 100%);
-}
