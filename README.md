@@ -12,13 +12,16 @@ The widget was built in React.js.
 
 Clean minimalistic design that shows:
 - 5 day weather forecast
+- current day
 - daily temperature
-- daily wind speed
+- current weather icon
 - weather description
+- feels like temperature
+- wind speed
+- humidity
+- Atmospheric pressure
 - twilight hours
 - user's location
-- current day
-- current weather icon
 - date and time of weather forecast for that day
 
 The user has the ability to scroll between each consecutive days.
