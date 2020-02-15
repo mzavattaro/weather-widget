@@ -18,16 +18,19 @@
 
 .cell-2 {
   grid-area: left;
+  background-color: aqua;
 }
 
 .cell-3 {
   grid-area: main;
   overflow-x: hidden;
   border-radius: 0.5rem;
+  background-color: yellow;
 }
 
 .cell-4 {
   grid-area: right;
+  background-color: red;
 }
 
 .cell-5 {
