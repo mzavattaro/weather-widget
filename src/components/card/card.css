@@ -93,7 +93,7 @@ h2 {
 }
 
 .subheader {
-    border-bottom: 2px solid rgb(217, 218, 231, 0.5) ;
+    border-bottom: 0.125rem solid rgb(217, 218, 231, 0.5) ;
     padding: 0 3rem 0.5rem 3rem ;
 }
 

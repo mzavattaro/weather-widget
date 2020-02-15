@@ -23,7 +23,7 @@
 .cell-3 {
   grid-area: main;
   overflow-x: hidden;
-  border-radius: 8px;
+  border-radius: 0.5rem;
 }
 
 .cell-4 {
